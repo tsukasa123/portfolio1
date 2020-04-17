@@ -29,6 +29,8 @@
 
         <div class="container py-4">
             
+
+            @if(Auth::check())
             <div class="row justify-content-center">
                 <div class="col-md-3">
                     <ul class="list-group">
@@ -36,14 +38,23 @@
                             <a href="{{ route('post.index') }}"><i class="fas fa-home"></i> Posts</a>
                         </li>
                         <li class="list-group-item">
+                            <a href="{{ route('dashboard') }}"><i class="fas fa-user-circle"></i> Dashboard</a>
+                        </li>
+                        <li class="list-group-item">
                             <a href="{{ route('post.create') }}" class="btn btn-primary form-control rounded-pill">Tweet</a>
                         </li>
                     </ul>
                 </div>
+                @endif
 
+                <div class="col-md-6">
+                    @yield('content')
+                </div>
 
+                <div class="col-md-3">
+                    <h1>Hello, Right Side</h1>
+                </div>
                 
-                @yield('content')
                 
 
               

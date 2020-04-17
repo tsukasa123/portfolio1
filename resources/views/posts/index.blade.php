@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="col-md-6">
 
     <div class="card rounded-0">
         <div class="card-header d-flex justify-content-between bg-white">
@@ -50,12 +49,8 @@
         </div>
     </div>
 
-</div>
 
 
-<div class="col-md-3">
-    <h1>Hello, Right Side</h1>
-</div>
 
 
 

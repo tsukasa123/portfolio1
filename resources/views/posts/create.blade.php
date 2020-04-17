@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="col-md-6">
     <div class="card rounded-lg">
         <div class="card-header d-flex justify-content-between bg-white">
             <h4 class="m-0">Home</h4>
@@ -34,9 +33,4 @@
 
 
     </div>
-</div>
-
-<div class="col-md-3">
-    
-</div>
 @stop
