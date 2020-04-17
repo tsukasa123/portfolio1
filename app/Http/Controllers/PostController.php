@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
+
 
 class PostController extends Controller
 {
@@ -14,7 +18,12 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('posts.index')->with('posts', Post::all());
+        $posts = Post::all();
+        $posts = Post::orderBy('id', 'DESC')->get();
+        return view('posts.index')->with('posts', $posts)
+                                  ->with('users', Auth::user());
+
+        // return view('posts.index')->with('posts', Post::all());
     }
 
     /**
@@ -35,7 +44,26 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'description' => 'required|max:255',
+            'featured_img' => 'required|image',
+        ]);
+
+        $featured = $request->featured_img;
+        $featured_new_name = time().$featured->getClientOriginalName();
+        Storage::disk('public')->put($featured_new_name, file_get_contents($featured));
+
+        $user_id = Auth::id();
+
+        $post = Post::create([
+            'description' => $request->description,
+            'featured_image' => $featured_new_name,
+            'user_id' => $user_id
+        ]);
+
+        Session::flash('success', 'Post Created Successfully');
+
+        return redirect()->route('post.index');
     }
 
     /**

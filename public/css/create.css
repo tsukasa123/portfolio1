@@ -1,0 +1,10 @@
+label {
+    cursor: pointer;
+    display: inline-block;
+}
+label:hover {
+    color: #3390DC;
+}
+label input {
+    display: none;
+}

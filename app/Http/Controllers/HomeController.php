@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Auth;
+use App\Post;
 
 class HomeController extends Controller
 {
@@ -26,6 +27,7 @@ class HomeController extends Controller
     public function index()
     {
         $posts = User::find(Auth::id())->posts;
+        $posts = Post::orderBy('id', 'DESC')->get();
         return view('dashboard')->with('posts', $posts);
         // return view('home');
     }
