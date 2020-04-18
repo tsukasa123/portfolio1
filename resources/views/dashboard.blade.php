@@ -17,12 +17,11 @@
         <div class="d-flex justify-content-end">
             <a href="" class="btn btn-outline-primary btn-md rounded-pill">Settings</a>
         </div>
-
         
-      <h4 class="card-title font-weight-bold m-0">{{ Auth::user()->name }} <br>
-        <small class="text-muted">@account_name</small></h4>
-      <p class="m-0 py-1">here's introduction</p>
-      <p class="m-0"><i class="far fa-calendar-alt"></i> {{ Auth::user()->created_at }}</p>
+        <h4 class="card-title font-weight-bold m-0">{{ Auth::user()->name }} <br>
+            <small class="text-muted">@account_name</small></h4>
+        <p class="m-0 py-1">here's introduction</p>
+        <p class="m-0"><i class="far fa-calendar-alt"></i> {{ Auth::user()->created_at }}</p>
     </div>
 </div>
 
