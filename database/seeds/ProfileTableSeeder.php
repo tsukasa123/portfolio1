@@ -11,8 +11,9 @@ class ProfileTableSeeder extends Seeder
      */
     public function run()
     {
-        Profile::create([
-            'avatar' => 'storage/sample.JPG',
+        \App\Profile::create([
+            'user_id' => '1',
+            'avatar' => 'sample.JPG',
             'background_image' => 'storage/sample.JPG',
             'introduction' => 'This is practice for using seeds and making fake twitter.'
         ]);

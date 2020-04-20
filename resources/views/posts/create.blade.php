@@ -11,8 +11,8 @@
         
 
             <div class="card-body d-flex p-1">
-                <div class="col-md-1">
-                    <img src="" alt="IMAGE" class="rounded-circle" width="50px" height="50px">
+                <div class="col-md-1 p-1">
+                    <img src="{{ asset('storage/' . Auth::user()->profile->avatar) }}" alt="IMAGE" class="rounded-circle" width="50px" height="50px">
                 </div>
 
                 <div class="col-md-11">

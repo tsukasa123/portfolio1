@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use Auth;
 use App\Post;
+use App\Profile;
 
 class HomeController extends Controller
 {
@@ -28,7 +29,9 @@ class HomeController extends Controller
     {
         $posts = User::find(Auth::id())->posts;
         $posts = Post::orderBy('id', 'DESC')->get();
-        return view('dashboard')->with('posts', $posts);
+        $profile = Profile::first();
+        return view('dashboard')->with('posts', $posts)
+                                ->with('profile', $profile);
         // return view('home');
     }
 }

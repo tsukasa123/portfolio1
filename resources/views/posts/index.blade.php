@@ -9,8 +9,8 @@
             <a href="#"><i class="far fa-star"></i></a>
         </div>
         <div class="card-body d-flex p-1">
-            <div class="col-md-1">
-                <img src="" alt="IMAGE" class="rounded-circle" width="50px" height="50px">
+            <div class="col-md-1 p-1">
+                <img src="{{ asset('storage/' . Auth::user()->profile->avatar) }}" alt="IMAGE" class="rounded-circle" width="50px" height="50px">
             </div>
             <div class="col-md-11">
 
@@ -45,8 +45,8 @@
     @foreach($posts as $post)
     <div class="card rounded-0">
         <div class="card-body d-flex p-1">
-            <div class="col-md-1">
-                <img src="#" alt="IMG" class="rounded-circle" width="50px" height="50px">
+            <div class="col-md-1 p-1">
+                <img src="{{ asset('storage/' . Auth::user()->profile->avatar) }}" alt="" class="rounded-circle" width="50px" height="50px">
             </div>
             <div class="col-md-11">
                 <div class="d-flex justfy-content-between">
@@ -55,7 +55,7 @@
                     <h5 class="text-muted">{{ $post->created_at->diffForHumans() }}</h5>
                 </div>
                 <p>{{ $post->description }}</p>
-                <img src="{{ asset('storage/'.$post->featured_image) }}" alt="Image" width="100%" class="rounded-lg">
+                <img src="{{ asset('storage/'.$post->featured_image) }}" alt="" width="100%" class="rounded-lg">
                 <div class="d-flex">
                     <div class="col-3"><i class="far fa-comment"></i></div>
                     <div class="col-3"><i class="fas fa-retweet"></i></div>
